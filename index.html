@@ -29,16 +29,67 @@
       method="POST"
       action="https://script.google.com/macros/s/AKfycbyDbUc9HOwGM-WKs7M0xb5_ECn4kRO2J3zOqOZJAOxn2Y6EMCbFcpe_wbYTyyE4PY7rqw/exec"
       onsubmit="handleSubmit(event)">
-    <input name="Email" type="email" placeholder="Email">
-    <input name="Name" type="text" placeholder="Name" required>
-    <input name="Mobile" type="number" placeholder="Mobile Number">
-    <label>Are you registering as?</label>
+
+      <!-- <div>
+        <label for="name" class="required">Name</label>
+        <input name="Name" type="text" id="name" placeholder="Enter your name" required>
+    </div>
+    
+    <div>
+        <label for="email">Email</label>
+        <input name="Email" type="email" id="email" placeholder="Enter your email">
+    </div>
+    
+    <div>
+        <label for="mobile">Mobile Number</label>
+        <input name="Mobile" type="tel" id="mobile" placeholder="Enter your mobile number">
+    </div>
+
+      <div>
+        <label for="name" class="required">Name</label>
+        <input name="Name" type="text" id="name" placeholder="Enter your name" required>
+    </div>
+    
+    <div>
+        <label for="email">Email</label>
+        <input name="Email" type="email" id="email" placeholder="Enter your email">
+    </div>
+    
+    <div>
+        <label for="mobile">Mobile Number</label>
+        <input name="Mobile" type="tel" id="mobile" placeholder="Enter your mobile number">
+    </div> -->
+      <!-- Name with Red Asterisk -->
+<span>
+
+<label for="name">Name <span style="color: red;">*</span></label>
+<input name="Name" type="text" id="name" placeholder="Enter your name" required>
+</span>
+
+<!-- Email without Asterisk -->
+<label for="email">Email</label>
+<input name="Email" type="email" id="email" placeholder="Enter your email">
+
+<!-- Mobile Number without Asterisk -->
+<label for="mobile">Mobile Number</label>
+<input name="Mobile" type="tel" id="mobile" placeholder="(Optional)">
+
+    <!-- <input name="Email" type="email" placeholder="Email">
+    <label for="name">Name <span style="color: red;">*</span></label>
+    <input name="Name" type="text" id="name" placeholder="Enter your name" required> -->
+
+    <!-- <input name="Name" type="text" placeholder="Name" required> -->
+    <!-- <input name="Mobile" type="number" placeholder="Mobile Number"> -->
+    <label>Are you registering as? <span style="color: red;">*</span></label>
     <div style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
         <label>
-            <input type="radio" name="Customer" value="Parents" required> Parents
+            <input type="radio" name="Customer" value="Child"> Child
         </label>
         <label>
-            <input type="radio" name="Customer" value="Child"> Child
+            <input type="radio" name="Customer" value="Adult"> Adult
+        </label>
+        <label>
+            <input type="radio" name="Customer" value="Parents" required> Parents
         </label>
     </div>
     <!-- <tr>
@@ -66,6 +117,7 @@
 </div>
 
 <style>
+ 
 /* Popup styles */
 input[type="radio"] {
   display: inline;
