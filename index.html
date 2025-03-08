@@ -17,14 +17,42 @@
             <input type="email" id="email" placeholder="Enter your email" required>
             <button type="submit">Submit</button>
         </form> -->
-        <form id="userForm"
+        <!-- <form id="userForm"
                 method="POST" 
                 action="https://script.google.com/macros/s/AKfycbyDbUc9HOwGM-WKs7M0xb5_ECn4kRO2J3zOqOZJAOxn2Y6EMCbFcpe_wbYTyyE4PY7rqw/exec"
                 >
                     <input name="Email" type="email" placeholder="Email" required>
                     <input name="Name" type="text" placeholder="Name" required>
                     <button type="submit">Send</button>
-        </form>
+        </form> -->
+        <form id="userForm"
+      method="POST"
+      action="https://script.google.com/macros/s/AKfycbyDbUc9HOwGM-WKs7M0xb5_ECn4kRO2J3zOqOZJAOxn2Y6EMCbFcpe_wbYTyyE4PY7rqw/exec"
+      onsubmit="handleSubmit(event)">
+    <input name="Email" type="email" placeholder="Email">
+    <input name="Name" type="text" placeholder="Name" required>
+    <input name="Mobile" type="number" placeholder="Mobile Number">
+    <label>Are you registering as?</label>
+    <div style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
+        <label>
+            <input type="radio" name="Customer" value="Parents" required> Parents
+        </label>
+        <label>
+            <input type="radio" name="Customer" value="Child"> Child
+        </label>
+    </div>
+    <!-- <tr>
+        <td><input type="radio" name="customer" value="Parent">Parent</td>
+        <td><input type="radio" name="customer" value="Child">Child
+        <td><input type="radio">Totally Missed The Point</td>
+    </tr> -->
+    <!-- <div>
+        <span><input  type="radio" name="customer" value="Parent">Parent
+        <input  type="radio" name="customer" value="Child">Child</span>
+    </div> -->
+ 
+    <button type="submit">Send</button>
+</form>
     </div>
 </div>
 
@@ -39,7 +67,10 @@
 
 <style>
 /* Popup styles */
-
+input[type="radio"] {
+  display: inline;
+  margin-right: 10px;
+}
 .popup {
     display: none;
     position: fixed;
@@ -103,6 +134,22 @@
 </style>
 
 <script>
+    function handleSubmit(event) {
+    // Show confirmation popup
+    document.getElementById("confirmationPopup").style.display = "block";
+
+    // Refresh page after 1.5 seconds (ensuring Google Sheets receives data)
+    setTimeout(() => {
+        window.location.reload();
+    }, 1500);
+}
+
+// Function to close the confirmation popup manually
+function closeConfirmation() {
+    document.getElementById("confirmationPopup").style.display = "none";
+    window.location.reload();
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const buyNowBtn = document.querySelector(".product-buy");
     const popupForm = document.getElementById("popupForm");
